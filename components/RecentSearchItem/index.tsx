@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const RecentSearch = styled.div`
   background: #f8f9fa;
@@ -29,5 +30,13 @@ interface Props {
 }
 
 export const RecentSearchComponent = ({ children }: Props): JSX.Element => {
-  return <RecentSearch>{children}</RecentSearch>;
+  const router = useRouter();
+
+  const sendToGallery = async () => {
+    router.push(`/gallery/${children}`);
+  };
+
+  return (
+    <RecentSearch onClick={() => sendToGallery()}>{children}</RecentSearch>
+  );
 };

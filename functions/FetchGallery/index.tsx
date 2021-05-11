@@ -56,7 +56,7 @@ export const FetchFromOpenSea = async (
     const tokenArray = response.data.assets;
     const formattedTokens = formatTokens(tokenArray, address);
     console.log(formattedTokens);
-    console.log(`Loaded ${formattedTokens.length} tokens.`);
+    // console.log(`Loaded ${formattedTokens.length} tokens.`);
     return Promise.resolve(formattedTokens);
   } catch (error) {
     console.log(error);

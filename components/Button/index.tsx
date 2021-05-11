@@ -23,9 +23,10 @@ const Button = styled.button`
 `;
 
 interface Props {
+  onClick: any;
   children: string;
 }
 
-export const ButtonComponent = ({ children }: Props): JSX.Element => {
-  return <Button>{children}</Button>;
+export const ButtonComponent = ({ onClick, children }: Props): JSX.Element => {
+  return <Button onClick={() => onClick()}>{children}</Button>;
 };
