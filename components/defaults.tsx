@@ -8,6 +8,8 @@ export const PageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  z-index: 1;
+  background: white;
 `;
 
 export const Row = styled.div`
@@ -15,7 +17,8 @@ export const Row = styled.div`
   flex-direction: row;
   align-content: center;
   align-items: center;
-  width: 980px;
+  width: 100%;
+  max-width: 980px;
 `;
 
 export const AlignPage = styled.div`
@@ -33,4 +36,13 @@ export const ContentGrid = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   max-width: 890px;
+`;
+
+export const MaxContentGrid = styled.div`
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 980px;
 `;

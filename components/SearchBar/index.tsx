@@ -5,7 +5,8 @@ const Input = styled.input`
   box-sizing: border-box;
   border: 0px solid #f8f9fa;
   border-radius: 10px;
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   height: 60px;
   decoration: null;
   box-shadow: none;
@@ -17,7 +18,6 @@ const Input = styled.input`
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
-  display: flex;
   align-items: center;
   color: #000;
   ::placeholder {

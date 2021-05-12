@@ -12,7 +12,7 @@ const formatTokens = (tokenArray: Array<any>, owner: string) => {
       private: false,
       description: ufT.description,
       collection: ufT.collection?.name,
-      created_by: ufT.creator?.address,
+      created_by: ufT.creator?.address ?? null,
       owned_by: owner,
       created_by_owner: ufT.creator === owner,
       properties: ufT.traits,
@@ -51,7 +51,7 @@ export const FetchFromOpenSea = async (
   }
 
   try {
-    const URI = `https://api.opensea.io/api/v1/assets?&order_direction=desc&offset=0&limit=100&owner=${address}`;
+    const URI = `https://api.opensea.io/api/v1/assets?&order_direction=asc&offset=0&limit=200&owner=${address}`;
     const response = await axios.get(URI);
     const tokenArray = response.data.assets;
     const formattedTokens = formatTokens(tokenArray, address);

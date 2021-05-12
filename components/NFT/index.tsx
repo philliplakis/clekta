@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const CardBg = styled.div`
   height: 300px;
@@ -66,11 +67,25 @@ interface Props {
   img: string;
   name: string;
   family: string;
+  address: string;
+  token: string;
 }
 
-export const NFTComponent = ({ name, family, img }: Props): JSX.Element => {
+export const NFTComponent = ({
+  name,
+  family,
+  img,
+  address,
+  token,
+}: Props): JSX.Element => {
+  const router = useRouter();
+
+  const sendToGallery = async () => {
+    router.push(`/asset/${address}?token=${token}`);
+  };
+
   return (
-    <CardBg>
+    <CardBg onClick={() => sendToGallery()}>
       <CardTop>
         <TokenImage src={img} />
       </CardTop>

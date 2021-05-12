@@ -13,20 +13,13 @@ const Title = styled.div`
   }
 `;
 
-const Wrap = styled.div`
-  position: relative;
-  height: 100px;
-  width: 100%;
-  max-width: 980px;
-`;
-
 const Top = styled.div`
   display: flex;
-  width: 100%;
   align-items: flex-start;
   position: absolute;
   top: 30px;
-  width: 980px;
+  width: 100%;
+  max-width: 980px;
   text-align: left;
   padding-bottom: 20px;
 `;
