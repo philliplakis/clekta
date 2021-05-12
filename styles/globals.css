@@ -27,7 +27,7 @@ a {
 
 @font-face {
   font-family: "Giaza";
-  src: url("../public/fonts/Giaza.otf") format("otf");
+  src: url("https://clekta.vercel.app/fonts/Giaza.otf") format("otf");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -35,7 +35,8 @@ a {
 
 @font-face {
   font-family: "Jet";
-  src: url("../public/fonts/JetBrainsMono-ExtraBold.ttf") format("truetype");
+  src: url("https://clekta.vercel.app/fonts/JetBrainsMono-ExtraBold.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -43,7 +44,8 @@ a {
 
 @font-face {
   font-family: "Jet";
-  src: url("../public/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  src: url("https://clekta.vercel.app/fonts/JetBrainsMono-Regular.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -51,7 +53,8 @@ a {
 
 @font-face {
   font-family: "Jet";
-  src: url("../public/fonts/JetBrainsMono-ExtraLight.ttf") format("truetype");
+  src: url("https://clekta.vercel.app/fonts/JetBrainsMono-ExtraLight.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
