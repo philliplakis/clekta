@@ -14,7 +14,6 @@ const Input = styled.input`
   outline: none;
   -webkit-appearance: none;
   font-family: Jet;
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;

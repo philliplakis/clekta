@@ -8,6 +8,7 @@ const Title = styled.div`
   font-size: 36px;
   line-height: 36px;
   color: #000000;
+  margin-left: 15px;
   :hover {
     cursor: pointer;
   }

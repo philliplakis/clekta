@@ -6,6 +6,7 @@ const Footer = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
+  min-width: 100vw;
   background: #f8f9fa;
   display: grid;
   place-items: center;

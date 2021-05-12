@@ -20,8 +20,7 @@ const Title = styled.div`
   height: 100%;
   max-width: 980px;
   font-family: Jet;
-  font-style: normal;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 24px;
   line-height: 36px;
   color: #000000;

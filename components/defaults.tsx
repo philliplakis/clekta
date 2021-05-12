@@ -33,7 +33,8 @@ export const ContentGrid = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
+  align-content: center;
   justify-content: space-around;
   max-width: 890px;
 `;
@@ -42,7 +43,8 @@ export const MaxContentGrid = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
+  align-content: center;
   justify-content: space-between;
   max-width: 980px;
 `;

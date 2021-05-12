@@ -26,16 +26,18 @@ const CardTop = styled.div`
 `;
 
 const TokenImage = styled.img`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-height: 180px;
+  max-width: 180px;
+  border-radius: 10px;
 `;
 
 const Name = styled.div`
   font-family: Jet;
-  font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 14px;
   line-height: 18px;
   text-align: center;
@@ -49,8 +51,7 @@ const Name = styled.div`
 
 const Family = styled.div`
   font-family: Jet;
-  font-style: normal;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 14px;
   line-height: 18px;
   text-align: center;
