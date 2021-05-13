@@ -55,7 +55,7 @@ export const FetchFromOpenSea = async (
     const response = await axios.get(URI);
     const tokenArray = response.data.assets;
     const formattedTokens = formatTokens(tokenArray, address);
-    console.log(formattedTokens);
+    // console.log(formattedTokens);
     // console.log(`Loaded ${formattedTokens.length} tokens.`);
     return Promise.resolve(formattedTokens);
   } catch (error) {

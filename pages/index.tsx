@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Web3 from "web3";
 import Head from "next/head";
 import styled from "styled-components";
 import { useRouter } from "next/router";
@@ -43,12 +44,59 @@ const LandingText = styled.div`
   font-weight: normal;
   font-size: 30px;
 `;
+declare let window: any;
+
+async function getWeb3() {
+  window.addEventListener("load", async () => {
+    let web3: Web3;
+    if (window.ethereum) {
+      // Modern dapp browsers
+      web3 = new Web3(window.ethereum);
+      await window.ethereum.enable();
+      // Open metamask
+      web3.eth.getAccounts((err, accounts) => {
+        if (err !== null) {
+          return err;
+        } else if (accounts.length === 0) {
+          return new Error("constants.LOCKED");
+        } else {
+          console.log({ accounts });
+          return accounts;
+        }
+      });
+      return web3;
+    } else if (window.web3) {
+      // Legacy dapp browsers...
+      web3 = new Web3(window.web3.currentProvider);
+      web3.eth.getAccounts((err, accounts) => {
+        if (err !== null) {
+          return err;
+        } else if (accounts.length === 0) {
+          return new Error("constants.LOCKED");
+        } else {
+          console.log({ accounts });
+          return accounts;
+        }
+      });
+      return web3;
+    } else {
+      throw new Error("Metamask not found");
+    }
+  });
+}
 
 export default function Home(): JSX.Element {
   const [ethAddress, setEthAddress]: [
     string | undefined,
     (host: string) => string | void
   ] = useState("");
+
+  useEffect(() => {
+    const init = async () => {
+      await getWeb3();
+    };
+    init();
+  }, []);
 
   const onEthAddressHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEthAddress(event.target.value);
