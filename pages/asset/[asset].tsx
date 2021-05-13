@@ -172,7 +172,7 @@ export default function Page({ data, address, token }) {
   };
 
   const salePrice = data?.last_sale?.total_price / Math.pow(10, 18);
-
+  console.log(data);
   return (
     <>
       <PageWrapper>
@@ -190,7 +190,10 @@ export default function Page({ data, address, token }) {
             />
             <meta property="og:description" content={`${data.description}`} />
             <meta property="og:url" content="https://clekta.io" />
-            <meta property="og:image" content={`${data.image_url}`} />
+            <meta
+              property="og:image"
+              content={`${data.image_url ?? "/content/NFT_Icon.png"}`}
+            />
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="200" />
             <meta property="og:image:height" content="200" />
@@ -204,7 +207,7 @@ export default function Page({ data, address, token }) {
           </Head>
           <TopNav />
           <Spacer spacer="60px" />
-          <Image src={data.image_url} />
+          <Image src={data.image_url ?? "/content/NFT_Icon.png"} />
           <Content>
             <ArtName>{data.name}</ArtName>
             <ArtDescription>{data.description}</ArtDescription>
@@ -215,8 +218,14 @@ export default function Page({ data, address, token }) {
             <OwnerCreator onClick={() => sendToGallery(data.owner.address)}>
               Owner: {data.owner.address}
             </OwnerCreator>
-            <OwnerCreator onClick={() => sendToGallery(data.creator.address)}>
-              Creator: {data.creator.address}
+            <OwnerCreator
+              onClick={() =>
+                sendToGallery(
+                  data.creator?.address ?? data.asset_contract.address
+                )
+              }
+            >
+              Creator: {data.creator?.address ?? data.asset_contract.address}
             </OwnerCreator>
           </MaxContentGrid>
           <MaxContentGrid>
