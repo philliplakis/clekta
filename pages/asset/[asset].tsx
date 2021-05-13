@@ -133,7 +133,7 @@ export default function Page({ data, address, token }) {
         <PageWrapper>
           <AlignPage>
             <Head>
-              <title>Clekta</title>
+              <title>Clekta Asset</title>
               <meta name="description" content="An Art Gallery" />
               <link rel="icon" href="/favicon.ico" />
               <meta property="og:title" content={`Your Digital Art Gallery`} />
@@ -184,17 +184,20 @@ export default function Page({ data, address, token }) {
             <title>Clekta</title>
             <meta name="description" content="An Art Gallery" />
             <link rel="icon" href="/favicon.ico" />
-            <meta property="og:title" content={`Your Digital Art Gallery`} />
             <meta
-              property="og:description"
-              content={`An online oasis of your digital art.`}
+              property="og:title"
+              content={`Clekta | Your Digital Art Gallery`}
             />
+            <meta property="og:description" content={`${data.description}`} />
             <meta property="og:url" content="https://clekta.io" />
             <meta property="og:image" content={`${data.image_url}`} />
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="200" />
             <meta property="og:image:height" content="200" />
-            <meta property="og:site_name" content={`Clekta | ${data.name}`} />
+            <meta
+              property="og:site_name"
+              content={`Asset | ${data.name ?? data.token_id}`}
+            />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@clekta" />
             <meta name="twitter:creator" content="@clekta" />

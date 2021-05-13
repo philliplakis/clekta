@@ -39,7 +39,10 @@ export default function Page({ data, address }) {
             <title>Clekta</title>
             <meta name="description" content="An Art Gallery" />
             <link rel="icon" href="/favicon.ico" />
-            <meta property="og:title" content={`Your Digital Art Gallery`} />
+            <meta
+              property="og:title"
+              content={`Clekta | Your Digital Art Gallery`}
+            />
             <meta
               property="og:description"
               content={`An online oasis of your digital art.`}
@@ -49,7 +52,7 @@ export default function Page({ data, address }) {
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="200" />
             <meta property="og:image:height" content="200" />
-            <meta property="og:site_name" content={`Clekta | ${address}`} />
+            <meta property="og:site_name" content={`${address}`} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@clekta" />
             <meta name="twitter:creator" content="@clekta" />
