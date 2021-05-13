@@ -27,7 +27,7 @@ const Title = styled.div`
 `;
 
 export default function Page({ data, address }) {
-  const firstImage = data[0].media.image_url;
+  const firstImage = data[0]?.media?.image_url ?? "/content/NFT_Icon.png";
   return (
     <>
       <PageWrapper>
