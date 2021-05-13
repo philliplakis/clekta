@@ -16,13 +16,13 @@ a {
 }
 ::-moz-selection {
   /* Code for Firefox */
-  color: red;
-  background: yellow;
+  color: rgb(247, 90, 90);
+  background: #20ffd7;
 }
 
 ::selection {
-  color: red;
-  background: yellow;
+  color: rgb(247, 90, 90);
+  background: #20ffd7;
 }
 
 @font-face {

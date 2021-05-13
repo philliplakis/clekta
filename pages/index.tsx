@@ -117,7 +117,10 @@ export default function Home(): JSX.Element {
           <title>Clekta</title>
           <meta name="description" content="An Art Gallery" />
           <link rel="icon" href="/favicon.ico" />
-          <meta property="og:title" content={`Your Digital Art Gallery`} />
+          <meta
+            property="og:title"
+            content={`Clekta | Your Digital Art Gallery`}
+          />
           <meta
             property="og:description"
             content={`An online oasis of your digital art.`}

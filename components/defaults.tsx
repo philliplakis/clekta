@@ -43,7 +43,7 @@ export const MaxContentGrid = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   align-content: center;
   justify-content: space-between;
   max-width: 980px;
