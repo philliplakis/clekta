@@ -27,7 +27,9 @@ a {
 
 @font-face {
   font-family: "Giaza";
-  src: url("https://clekta.vercel.app/fonts/Giaza.otf") format("otf");
+  src: url("https://clekta.vercel.app/fonts/giaza-webfont.woff") format("woff"),
+    url("https://clekta.vercel.app/fonts/giaza-webfont.woff2") format("woff2"),
+    url("https://clekta.vercel.app/fonts/giaza-webfont.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
