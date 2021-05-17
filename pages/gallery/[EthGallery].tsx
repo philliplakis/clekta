@@ -36,19 +36,16 @@ async function getWeb3(setWeb3): Promise<Web3 | any> {
     // Modern dapp browsers
     web3 = new Web3(window.ethereum);
     setWeb3(web3);
-    console.log("yes");
     localStorage.setItem("web3state", "true");
     return web3;
   } else if (window.web3) {
     // Legacy dapp browsers...
     web3 = new Web3(window.web3.currentProvider);
     setWeb3(web3);
-    console.log("yes");
     localStorage.setItem("web3state", "true");
     return Web3;
   } else {
-    console.log("no");
-
+    localStorage.setItem("web3state", "false");
     return null;
   }
 }
@@ -79,7 +76,7 @@ export default function Page({ data, address }) {
       await getWeb3(setWeb3state);
     };
     init();
-  }, [web3state, web3Accounts]);
+  }, []);
 
   const firstImage = data[0]?.media?.image_url ?? "/content/NFT_Icon.png";
   return (

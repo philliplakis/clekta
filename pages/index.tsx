@@ -97,7 +97,7 @@ export default function Home(): JSX.Element {
       await getWeb3(setWeb3state);
     };
     init();
-  }, [web3state, web3Accounts]);
+  }, []);
 
   const onEthAddressHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEthAddress(event.target.value);

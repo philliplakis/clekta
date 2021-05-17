@@ -143,8 +143,11 @@ async function getWeb3(setWeb3): Promise<Web3 | any> {
     web3 = new Web3(window.web3.currentProvider);
     setWeb3(web3);
     localStorage.setItem("web3state", "true");
+
     return Web3;
   } else {
+    localStorage.setItem("web3state", "false");
+
     return null;
   }
 }
@@ -175,7 +178,7 @@ export default function Page({ data, address, token }) {
       await getWeb3(setWeb3state);
     };
     init();
-  }, [web3state, web3Accounts]);
+  }, []);
 
   if (!data) {
     return (
