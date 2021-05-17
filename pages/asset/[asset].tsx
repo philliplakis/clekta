@@ -345,6 +345,9 @@ export async function getServerSideProps(context) {
     case "cryptopunks":
       address = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB";
       break;
+    case "veefriends":
+      address = "0xa3aee8bce55beea1951ef834b99f3ac60d1abeeb";
+      break;
     default:
       break;
   }
