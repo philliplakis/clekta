@@ -47,24 +47,24 @@ const LandingText = styled.div`
 declare let window: any;
 
 async function getWeb3(setWeb3): Promise<Web3 | any> {
-  window.addEventListener("load", async () => {
-    let web3: Web3;
-    if (window.ethereum) {
-      // Modern dapp browsers
-      web3 = new Web3(window.ethereum);
-      setWeb3(web3);
-      localStorage.setItem("web3state", "true");
-      return web3;
-    } else if (window.web3) {
-      // Legacy dapp browsers...
-      web3 = new Web3(window.web3.currentProvider);
-      setWeb3(web3);
-      localStorage.setItem("web3state", "true");
-      return Web3;
-    } else {
-      return null;
-    }
-  });
+  // window.addEventListener("load", async () => {
+  let web3: Web3;
+  if (window.ethereum) {
+    // Modern dapp browsers
+    web3 = new Web3(window.ethereum);
+    setWeb3(web3);
+    localStorage.setItem("web3state", "true");
+    return web3;
+  } else if (window.web3) {
+    // Legacy dapp browsers...
+    web3 = new Web3(window.web3.currentProvider);
+    setWeb3(web3);
+    localStorage.setItem("web3state", "true");
+    return Web3;
+  } else {
+    return null;
+  }
+  // });
 }
 
 export default function Home(): JSX.Element {

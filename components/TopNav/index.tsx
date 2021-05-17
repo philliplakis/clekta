@@ -55,8 +55,8 @@ export const TopNav = ({
   const [next, setNext] = useState(false);
 
   const router = useRouter();
-  console.log({ connected });
-  console.log({ accounts });
+  // console.log({ connected });
+  // console.log({ accounts });
 
   useEffect(() => {
     const init = async () => {
@@ -83,8 +83,12 @@ export const TopNav = ({
         getContent={(dataTip) =>
           connected && next ? (
             <Hover>
-              <StyledLinkNav>Profile</StyledLinkNav>
-              <StyledLinkNav>Gallery</StyledLinkNav>
+              {/* <StyledLinkNav>Profile</StyledLinkNav> */}
+              <StyledLinkNav
+                onClick={() => router.push(`/gallery/${accounts}`)}
+              >
+                Gallery
+              </StyledLinkNav>
             </Hover>
           ) : (
             <Hover>
