@@ -215,7 +215,7 @@ export default function Page({ data, address, token }) {
               web3Accounts={web3Accounts}
               connectMetamask={getAccounts}
             />{" "}
-            <Title>404 | We could not find any data on the token.</Title>
+            <Title>404 | We could not find any data on the art piece.</Title>
           </AlignPage>
         </PageWrapper>
         <FooterComponent />
@@ -341,6 +341,10 @@ export async function getServerSideProps(context) {
   switch (address.toLowerCase()) {
     case "cryptokitties":
       address = "0x06012c8cf97bead5deae237070f9587f8e7a266d";
+      break;
+    case "cryptopunks":
+      address = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB";
+      break;
     default:
       break;
   }
@@ -352,7 +356,6 @@ export async function getServerSideProps(context) {
     // Pass data to the page via props
     return { props: { data, address, token } };
   } catch (error) {
-    console.log(error);
     return { props: { data: null, address, token } };
   }
 }
