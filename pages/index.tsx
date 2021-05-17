@@ -115,6 +115,12 @@ export default function Home(): JSX.Element {
     <>
       <PageWrapper>
         <Head>
+          <script
+            async
+            defer
+            data-domain="clekta.app"
+            src="https://plausible.io/js/plausible.js"
+          ></script>
           <title>Clekta</title>
           <meta name="description" content="An Art Gallery" />
           <link rel="icon" href="/favicon.ico" />
