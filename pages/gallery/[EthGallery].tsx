@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import Head from "next/head";
 import styled from "styled-components";
 import { TopNav } from "../../components/TopNav";
@@ -5,6 +7,8 @@ import { FooterComponent } from "../../components/Footer";
 import { NFTComponent } from "../../components/NFT";
 import { RotatedHeading } from "../../components/HeadingRotatedText";
 import { FetchFromOpenSea } from "../../functions/FetchGallery";
+import Web3 from "web3";
+declare let window: any;
 
 import {
   PageWrapper,
@@ -26,7 +30,55 @@ const Title = styled.div`
   color: #000000;
 `;
 
+async function getWeb3(setWeb3): Promise<Web3 | any> {
+  window.addEventListener("load", async () => {
+    let web3: Web3;
+    if (window.ethereum) {
+      // Modern dapp browsers
+      web3 = new Web3(window.ethereum);
+      setWeb3(web3);
+      localStorage.setItem("web3state", "true");
+      return web3;
+    } else if (window.web3) {
+      // Legacy dapp browsers...
+      web3 = new Web3(window.web3.currentProvider);
+      setWeb3(web3);
+      localStorage.setItem("web3state", "true");
+      return Web3;
+    } else {
+      return null;
+    }
+  });
+}
+
 export default function Page({ data, address }) {
+  const [web3state, setWeb3state] = useState(null);
+  const [web3Accounts, setWeb3Accounts] = useState([]);
+
+  async function getAccounts() {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        localStorage.setItem("web3accounts", accounts);
+        setWeb3Accounts(accounts);
+      } catch (error) {
+        if (error.code === 4001) {
+          // User rejected request
+        }
+        return null;
+      }
+    }
+  }
+
+  useEffect(() => {
+    const init = async () => {
+      await getWeb3(setWeb3state);
+    };
+    init();
+  }, [web3state, web3Accounts]);
+
   const firstImage = data[0]?.media?.image_url ?? "/content/NFT_Icon.png";
   return (
     <>
@@ -57,7 +109,11 @@ export default function Page({ data, address }) {
             <meta name="twitter:site" content="@clekta" />
             <meta name="twitter:creator" content="@clekta" />
           </Head>
-          <TopNav />
+          <TopNav
+            connected={web3state}
+            web3Accounts={web3Accounts}
+            connectMetamask={getAccounts}
+          />
           {data.length > 0 ? (
             <>
               <Spacer spacer={"220px"} />

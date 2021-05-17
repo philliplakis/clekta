@@ -28,21 +28,20 @@ export const WebThree = atom({
   default: selector({
     key: "web3/Default",
     get: async () => {
-      window.addEventListener("load", async () => {
-        try {
-          if (
-            typeof window !== "undefined" &&
-            Boolean(window.ethereum || window.web3)
-          ) {
-            const web3 = await getWeb3();
-            return web3;
-          }
-          return null;
-        } catch (e) {
-          console.error("ERROR GET web3/Default", e);
-          return null;
+      // window.addEventListener("load", async () => {
+      try {
+        if (
+          typeof window !== "undefined" &&
+          Boolean(window.ethereum || window.web3)
+        ) {
+          const web3 = await getWeb3();
+          return web3;
         }
-      });
+        return null;
+      } catch (e) {
+        console.error("ERROR GET web3/Default", e);
+        return null;
+      }
     },
   }),
 });

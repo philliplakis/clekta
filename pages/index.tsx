@@ -46,41 +46,23 @@ const LandingText = styled.div`
 `;
 declare let window: any;
 
-async function getWeb3() {
+async function getWeb3(setWeb3): Promise<Web3 | any> {
   window.addEventListener("load", async () => {
     let web3: Web3;
     if (window.ethereum) {
       // Modern dapp browsers
       web3 = new Web3(window.ethereum);
-      await window.ethereum.enable();
-      // Open metamask
-      web3.eth.getAccounts((err, accounts) => {
-        if (err !== null) {
-          return err;
-        } else if (accounts.length === 0) {
-          return new Error("constants.LOCKED");
-        } else {
-          console.log({ accounts });
-          return accounts;
-        }
-      });
+      setWeb3(web3);
+      localStorage.setItem("web3state", "true");
       return web3;
     } else if (window.web3) {
       // Legacy dapp browsers...
       web3 = new Web3(window.web3.currentProvider);
-      web3.eth.getAccounts((err, accounts) => {
-        if (err !== null) {
-          return err;
-        } else if (accounts.length === 0) {
-          return new Error("constants.LOCKED");
-        } else {
-          console.log({ accounts });
-          return accounts;
-        }
-      });
-      return web3;
+      setWeb3(web3);
+      localStorage.setItem("web3state", "true");
+      return Web3;
     } else {
-      throw new Error("Metamask not found");
+      return null;
     }
   });
 }
@@ -90,13 +72,32 @@ export default function Home(): JSX.Element {
     string | undefined,
     (host: string) => string | void
   ] = useState("");
+  const [web3state, setWeb3state] = useState(null);
+  const [web3Accounts, setWeb3Accounts] = useState([]);
+
+  async function getAccounts() {
+    if (window.ethereum) {
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        localStorage.setItem("web3accounts", accounts);
+        setWeb3Accounts(accounts);
+      } catch (error) {
+        if (error.code === 4001) {
+          // User rejected request
+        }
+        return null;
+      }
+    }
+  }
 
   useEffect(() => {
     const init = async () => {
-      await getWeb3();
+      await getWeb3(setWeb3state);
     };
     init();
-  }, []);
+  }, [web3state, web3Accounts]);
 
   const onEthAddressHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEthAddress(event.target.value);
@@ -142,7 +143,11 @@ export default function Home(): JSX.Element {
           <meta name="twitter:creator" content="@clekta" />
         </Head>
         <AlignPage>
-          <TopNav />
+          <TopNav
+            connected={web3state}
+            web3Accounts={web3Accounts}
+            connectMetamask={getAccounts}
+          />
           <Spacer spacer={"100px"} />
           <Landing>
             <LandingImg src={"/content/home.png"} />

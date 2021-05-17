@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { RecoilRoot } from "recoil";
 
 const GlobalStyle = createGlobalStyle`
 html,
@@ -76,11 +77,11 @@ const theme = {
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <RecoilRoot>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
-    </>
+    </RecoilRoot>
   );
 }

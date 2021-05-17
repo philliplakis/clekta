@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import ReactTooltip from "react-tooltip";
@@ -38,20 +40,60 @@ const Top = styled.div`
   }
 `;
 
-export const TopNav = (): JSX.Element => {
+interface Props {
+  connected: boolean | null;
+  connectMetamask: any;
+  web3Accounts: Array<string>;
+}
+
+export const TopNav = ({
+  connected,
+  connectMetamask,
+  web3Accounts,
+}: Props): JSX.Element => {
+  const [accounts, setAccounts] = useState("");
+  const [next, setNext] = useState(false);
+
   const router = useRouter();
+  console.log({ connected });
+  console.log({ accounts });
+
+  useEffect(() => {
+    const init = async () => {
+      const hasWeb3 = localStorage.getItem("web3state");
+      if (hasWeb3) {
+        const exists = hasWeb3.toLowerCase() == "true";
+        if (exists) {
+          const hasWeb3Acc = localStorage.getItem("web3accounts");
+          if (hasWeb3Acc) {
+            setAccounts(hasWeb3Acc);
+            setNext(true);
+          }
+        }
+      }
+    };
+    init();
+  }, [accounts]);
 
   return (
     <Top>
       <Title onClick={() => router.push(`/`)}>Clekta</Title>
       <ReactTooltip
         id="userData"
-        getContent={(dataTip) => (
-          <Hover>
-            <StyledLinkNav>Profile</StyledLinkNav>
-            <StyledLinkNav>Gallery</StyledLinkNav>
-          </Hover>
-        )}
+        getContent={(dataTip) =>
+          connected && next ? (
+            <Hover>
+              <StyledLinkNav>Profile</StyledLinkNav>
+              <StyledLinkNav>Gallery</StyledLinkNav>
+            </Hover>
+          ) : (
+            <Hover>
+              <StyledLinkNav onClick={() => connectMetamask()}>
+                Connect Metamask
+              </StyledLinkNav>
+            </Hover>
+          )
+        }
         effect="solid"
         delayHide={500}
         delayUpdate={500}

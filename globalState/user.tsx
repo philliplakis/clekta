@@ -13,8 +13,3 @@ export const UserDefaults = atom({
   },
   effects_UNSTABLE: [persistAtom],
 });
-
-export const featuredUsers = atom({
-  key: "featured",
-  default: [],
-});
