@@ -172,7 +172,7 @@ export default function Page({ data, address, token }) {
   };
 
   const salePrice = data?.last_sale?.total_price / Math.pow(10, 18);
-  console.log(data);
+
   return (
     <>
       <PageWrapper>
@@ -188,7 +188,10 @@ export default function Page({ data, address, token }) {
               property="og:title"
               content={`Clekta | Your Digital Art Gallery`}
             />
-            <meta property="og:description" content={`${data.description}`} />
+            <meta
+              property="og:description"
+              content={`${data.description ?? data.name ?? data.token_id}`}
+            />
             <meta property="og:url" content="https://clekta.app" />
             <meta
               property="og:image"
@@ -287,7 +290,6 @@ export async function getServerSideProps(context) {
   try {
     const data = await FetchAssetFromOpenSea(address, token);
     // Pass data to the page via props
-
     return { props: { data, address, token } };
   } catch (error) {
     console.log(error);
