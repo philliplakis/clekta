@@ -7,11 +7,27 @@ const CardBg = styled.div`
   border-radius: 30px;
   background: #f8f9fa;
   position: relative;
-  box-shadow: 0px 0px 10px rgba(32, 255, 215, 0.44);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.08);
+
   margin: 10px;
   :hover {
     cursor: pointer;
-    background-color: #20ffd799;
+    box-shadow: 0px 0px 10px rgba(32, 255, 215, 0.44);
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(32, 220, 255, 0.1) 0%,
+      rgba(32, 255, 215, 0.2) 35%
+    );
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(32, 220, 255, 0.1) 0%,
+      rgba(32, 255, 215, 0.2) 35%
+    );
+    background: linear-gradient(
+      0deg,
+      rgba(32, 220, 255, 0.1) 0%,
+      rgba(32, 255, 215, 0.2) 35%
+    );
   }
 `;
 
@@ -47,6 +63,9 @@ const Name = styled.div`
   right: 0%;
   top: 75.33%;
   bottom: 18.67%;
+  text-overflow: ellipsis;
+  height: 34px;
+  overflow: hidden;
 `;
 
 const Family = styled.div`

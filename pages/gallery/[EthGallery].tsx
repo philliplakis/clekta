@@ -47,7 +47,7 @@ export default function Page({ data, address }) {
               property="og:description"
               content={`An online oasis of your digital art.`}
             />
-            <meta property="og:url" content="https://clekta.io" />
+            <meta property="og:url" content="https://clekta.app" />
             <meta property="og:image" content={`${firstImage}`} />
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="200" />
@@ -104,7 +104,7 @@ export default function Page({ data, address }) {
             </>
           ) : (
             <>
-              <Title>This address does not own any ERC721 tokens.</Title>
+              <Title>This address does not own any art.</Title>
             </>
           )}
         </AlignPage>

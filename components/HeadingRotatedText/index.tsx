@@ -8,7 +8,7 @@ const Title = styled.div`
   line-height: 18px;
   color: #000000;
   transform: rotate(-90deg);
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 `;
 
 interface Props {

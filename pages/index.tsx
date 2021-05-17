@@ -125,7 +125,7 @@ export default function Home(): JSX.Element {
             property="og:description"
             content={`An online oasis of your digital art.`}
           />
-          <meta property="og:url" content="https://clekta.io" />
+          <meta property="og:url" content="https://clekta.app" />
           <meta
             property="og:image"
             content="https://clekta.vercel.app/content/home.png"
@@ -159,7 +159,7 @@ export default function Home(): JSX.Element {
           </ButtonComponent>
           <Spacer spacer={"100px"} />
           <Row>
-            <RotatedHeading>Recent Searches</RotatedHeading>
+            <RotatedHeading>Galleries</RotatedHeading>
             <ContentGrid>
               <RecentSearchComponent>
                 0x88207b431510DbE0AddBDaE3bD53013813fC8c71

@@ -189,7 +189,7 @@ export default function Page({ data, address, token }) {
               content={`Clekta | Your Digital Art Gallery`}
             />
             <meta property="og:description" content={`${data.description}`} />
-            <meta property="og:url" content="https://clekta.io" />
+            <meta property="og:url" content="https://clekta.app" />
             <meta
               property="og:image"
               content={`${data.image_url ?? "/content/NFT_Icon.png"}`}
