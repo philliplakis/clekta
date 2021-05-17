@@ -162,22 +162,22 @@ export default function Home(): JSX.Element {
             <RotatedHeading>Galleries</RotatedHeading>
             <ContentGrid>
               <RecentSearchComponent>
-                0x88207b431510DbE0AddBDaE3bD53013813fC8c71
+                0xed53514155887f28f926f7dd7ae02cf34191d927
               </RecentSearchComponent>
               <RecentSearchComponent>
-                0x38eae11284842ad78Ad87AaC894c70D180A8DD38
+                0xf52393e120f918ffba50410b90a29b1f8250c879
               </RecentSearchComponent>
               <RecentSearchComponent>
                 0x223716c5aa5fd892c0daff1f24d4531272e8b12d
               </RecentSearchComponent>
               <RecentSearchComponent>
-                0x38eae11284842ad78Ad87AaC894c70D180A8DD38
+                0x07afc76ec252afa6ac544724a01da2bdc2cc06fb
               </RecentSearchComponent>
               <RecentSearchComponent>
-                0x38eae11284842ad78Ad87AaC894c70D180A8DD38
+                0x79788917f5963880f79e138a3f01ac049df40812
               </RecentSearchComponent>
               <RecentSearchComponent>
-                0x38eae11284842ad78Ad87AaC894c70D180A8DD38
+                0x720a4fab08cb746fc90e88d1924a98104c0822cf
               </RecentSearchComponent>
             </ContentGrid>
           </Row>
