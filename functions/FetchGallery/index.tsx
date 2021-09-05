@@ -51,7 +51,7 @@ export const FetchFromOpenSea = async (
   }
 
   try {
-    const URI = `https://api.opensea.io/api/v1/assets?&order_direction=asc&offset=0&limit=200&owner=${address}`;
+    const URI = `https://api.opensea.io/api/v1/assets?&order_direction=asc&offset=0&limit=50&owner=${address}`;
     const response = await axios.get(URI);
     const tokenArray = response.data.assets;
     const formattedTokens = formatTokens(tokenArray, address);
